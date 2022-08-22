@@ -58,7 +58,7 @@ def save_fig(fig_id, tight_layout=True, fig_extension="png", resolution=300):
     plt.savefig(path, format=fig_extension, dpi=resolution)
 
 # In[1]:
-
+# Establishing connection to MongoDB database.
 client = MongoClient('mongodb://admin:TErh03sdO6FbDGGDu6BpeGfPjaFmFxe7YIam0Dl5ofBQNffMPW4JOKv9I5cHcLNv@172.16.0.36:27017')
 db = client.inmuebles
 analitika_estandarizados = db['analitika_estandarizados']
@@ -480,6 +480,7 @@ df4["SOCIOECONOMIC_BRACKET"].value_counts()
 
 
 # In[1]:
+# 
 split = StratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
 for train_index, test_index in split.split(df4, df4["SOCIOECONOMIC_BRACKET"]):
         strat_train_set= df4.iloc[train_index]
@@ -578,6 +579,7 @@ ax1.set_ylabel("Price (COP)")
 ax1.figure.savefig("bedrooms_box_plot.png", dpi = 300, bbox_inches='tight')
 
 # In[1]:
+# Kde plot by socioeconomic bracket
 plt.figure(figsize = (15,8))
 
 sns.kdeplot(x = data["PRICE_LOG"],
@@ -632,7 +634,7 @@ print("X_transformed "+str(" shape: ")+str(X_transformed.shape))
 X_test = pipeline.transform(X_test)
 
 # In[2]:
-# Estimating the 'out-of-the-box' models on the training set. 
+# Evaluating the performance of 'out-of-the-box' models on the training set. 
 num_folds = 10
 seed = 42
 scoring1 = 'r2'
@@ -729,7 +731,7 @@ print ('Random grid: ', random_grid, '\n')
 print ('Best Parameters: ', mlp_random.best_params_, ' \n')
 
 # In[2]:
-# Estimating the tuned models on the training set. 
+# Evaluating the tuned models on the training set. 
 num_folds = 10
 seed = 42
 scoring1 = 'r2'
