@@ -278,13 +278,6 @@ df1.drop(drop, axis=0, inplace=True)
 sns.boxplot(x="SOCIOECONOMIC_BRACKET", y="AGE_PER_SQM", data=df1)
 
 # In[1]:
-## DEFINE AGE_PER_SQM  
-## INCLUIR ZONA_GEOECONOMICA (Precio del lote por metro cuadrado - CATASTRAL) - IMPORTANTE
-## DISTANCIAS
-## modelo por sklearn 
-
-
-# In[1]:
 ## Analysing NUMBR_BEDROOMS column   
 
 df1['NUMBR_BEDROOMS']=pd.to_numeric(df1['NUMBR_BEDROOMS'])
